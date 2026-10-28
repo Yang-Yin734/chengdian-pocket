@@ -1,7 +1,7 @@
 {
   "versionCode": 21,
   "versionName": "0.3.3",
-  "url": "https://cdn.jsdelivr.net/gh/Yang-Yin734/chengdian-pocket@main/apk/chengdian-pocket-0.3.3.apk",
+  "url": "https://gcore.jsdelivr.net/gh/Yang-Yin734/chengdian-pocket@main/apk/chengdian-pocket-0.3.3.apk",
   "notes": "更新源改到自己的 GitHub 仓库（不再依赖第三方站点）。打开 App 就会检查并弹窗，摊开更新内容，只有【立即更新】【暂不更新】。另修：教室同步不再被提示层遮住、教室名带楼栋、可用时间显示为时段、配色改雾蓝玻璃。",
-  "sha256": "896bb883d0331d3d97466a7034e8f40e6ca6172bd3577d9b0238030d3cdb92d5"
+  "sha256": "51e5542fe6c9df5b5bb494c30bee8a5282614f479f0995dd55bf5f6fd871bbcd"
 }
