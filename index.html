@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>成电口袋 · 下载</title>
+<style>
+  :root{--blue:#3455C8;--ink:#131D33;--sub:#797F89;--bg:#F2F5FC}
+  *{box-sizing:border-box}
+  body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;
+    background:radial-gradient(120% 80% at 20% 0%,#E8EEFB 0%,var(--bg) 60%);
+    font:16px/1.6 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink);padding:24px}
+  .card{width:100%;max-width:460px;background:rgba(255,255,255,.78);backdrop-filter:blur(20px) saturate(1.4);
+    border:1px solid rgba(255,255,255,.9);border-radius:26px;padding:28px 26px;
+    box-shadow:0 24px 60px -24px rgba(19,29,51,.28)}
+  h1{margin:0 0 6px;font-size:26px;letter-spacing:-.4px}
+  .sub{color:var(--sub);font-size:13px;margin:0 0 22px}
+  .ver{display:flex;gap:10px;align-items:baseline;margin:0 0 6px}
+  .ver b{font-size:22px;letter-spacing:-.3px}
+  .ver span{color:var(--sub);font-size:13px}
+  .notes{background:#F4F7FE;border-radius:14px;padding:14px 16px;font-size:13.5px;color:#3C465C;margin:16px 0 22px;white-space:pre-wrap}
+  a.btn{display:block;text-align:center;background:var(--blue);color:#fff;text-decoration:none;
+    padding:15px 18px;border-radius:16px;font-weight:600;box-shadow:0 12px 26px -12px rgba(52,85,200,.8);transition:transform .12s}
+  a.btn:active{transform:scale(.97)}
+  .meta{margin-top:14px;font-size:12px;color:var(--sub);word-break:break-all}
+  .foot{margin-top:20px;font-size:12px;color:var(--sub);text-align:center}
+</style>
+</head>
+<body>
+<div class="card">
+  <h1>成电口袋</h1>
+  <p class="sub">个人开发 · 非官方应用 · 数据来自学校教务</p>
+  <div class="ver"><b id="vn">加载中…</b><span id="vc"></span></div>
+  <div class="notes" id="notes">正在读取 version.json…</div>
+  <a class="btn" id="dl" href="#">下载安装包</a>
+  <div class="meta" id="meta"></div>
+  <p class="foot">装好后打开 App 会自动检查更新，不需要再回这个页面。</p>
+</div>
+<script>
+fetch('version.json?t=' + Date.now()).then(r => r.json()).then(v => {
+  document.getElementById('vn').textContent = 'v' + v.versionName;
+  document.getElementById('vc').textContent = '(' + v.versionCode + ')';
+  document.getElementById('notes').textContent = v.notes || '（无更新说明）';
+  var url = 'apk/chengdian-pocket-' + v.versionName + '.apk';
+  document.getElementById('dl').href = url;
+  document.getElementById('dl').textContent = '下载 v' + v.versionName + '（约 ' + (2.2).toFixed(1) + ' MB）';
+  document.getElementById('meta').textContent = v.sha256 ? ('sha256 ' + v.sha256) : '';
+}).catch(e => {
+  document.getElementById('notes').textContent = '读取 version.json 失败：' + e;
+});
+</script>
+</body>
+</html>
