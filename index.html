@@ -41,7 +41,9 @@ fetch('version.json?t=' + Date.now()).then(r => r.json()).then(v => {
   document.getElementById('vn').textContent = 'v' + v.versionName;
   document.getElementById('vc').textContent = '(' + v.versionCode + ')';
   document.getElementById('notes').textContent = v.notes || '（无更新说明）';
-  var url = 'apk/chengdian-pocket-' + v.versionName + '.apk';
+  // 直接用清单里的地址：远程包名不一定是 chengdian-pocket-<版本>.apk，
+// 自己拼名字会在镜像/改名后 404。
+var url = v.url || ('apk/chengdian-pocket-' + v.versionName + '.apk');
   document.getElementById('dl').href = url;
   document.getElementById('dl').textContent = '下载 v' + v.versionName + '（约 ' + (2.2).toFixed(1) + ' MB）';
   document.getElementById('meta').textContent = v.sha256 ? ('sha256 ' + v.sha256) : '';
