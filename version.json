@@ -1,7 +1,7 @@
 {
   "versionCode": 22,
   "versionName": "0.3.4",
-  "url": "https://gh-proxy.com/https://raw.githubusercontent.com/Yang-Yin734/chengdian-pocket/main/apk/chengdian-pocket-0.3.4.apk",
-  "notes": "更新通道改到自己的仓库（不再依赖第三方站点）。这版修掉一个漏更新点：以前只有进了主界面才会弹更新，现在停在登录页也会弹。顺手把下载超时从 60 秒放宽到 180 秒——走加速镜像时 2.2 MB 要 40–70 秒，原来的超时会在大包上失败。",
-  "sha256": "71cf75fa853c3897ea43dc29982a4064ef14fb6458112b03683bc4f86dbee1ab"
+  "url": "https://gh-proxy.com/https://raw.githubusercontent.com/Yang-Yin734/chengdian-pocket/main/apk/chengdian-pocket-0.3.4-b2.apk",
+  "notes": "更新通道改到自己的仓库（不再依赖第三方站点）。这版修两处：① 以前只有进主界面才弹更新，现在停在登录页也会弹；② 下载改成多镜像自动重试——国内走加速镜像常在 80% 处断流，现在断一个换下一个地址接着下，不再整包重来。",
+  "sha256": "96da72c3473423cc5c564ab633130749d7a920c58cef4430ce75a6b507a4da72"
 }
