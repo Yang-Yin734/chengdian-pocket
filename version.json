@@ -1,7 +1,7 @@
 {
-  "versionCode": 23,
-  "versionName": "0.3.5",
-  "url": "https://gh-proxy.com/https://raw.githubusercontent.com/Yang-Yin734/chengdian-pocket/main/apk/chengdian-pocket-0.3.5.apk",
-  "notes": "第一次登录之后，不用再登了：记住账号密码（默认勾上），同步时发现登录态过期会自己重登。\n新增「校外访问 → 云中成电 WebVPN」开关：在家也能进教室和考试（校外现在会被教务 403 拒）。\n修：空闲教室校外被拒时，以前报「表格结构看不懂」，现在直接说「要校园网或成电 VPN」。",
-  "sha256": "1f4f4be63d98f780389dd97ad32bdcc675980109c5c0b8f958eabdd015e67d84"
+  "versionCode": 24,
+  "versionName": "0.3.6",
+  "url": "https://gh-proxy.com/https://raw.githubusercontent.com/Yang-Yin734/chengdian-pocket/main/apk/chengdian-pocket-0.3.6-release.apk",
+  "notes": "界面优化：四个导航标签常显，考试卡片更紧凑，教室显示缓存时间。\n明确区分演示数据、403 与登录失效，失败保留已有缓存。\n安全修复：不再明文保存密码，排除凭据备份和迁移，恢复 HTTPS 证书校验。\n校外 WebVPN 仍需本人完成学校认证。",
+  "sha256": "6bb0552b691ff7dac392ec65076649178ef44023866d8bd78e76fbac4a6d8ad9"
 }
