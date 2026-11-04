@@ -1,7 +1,7 @@
 {
-  "versionCode": 26,
-  "versionName": "0.3.8",
-  "url": "https://gh-proxy.com/https://raw.githubusercontent.com/Yang-Yin734/chengdian-pocket/main/apk/chengdian-pocket-0.3.8.apk",
-  "notes": "失败提示统一成状态卡：红=被挡住（403/校外）、琥珀=要注意（演示数据）、灰=确实没有；教室和考试的失败页不再是一行小字。\n考试页区分「这学期还没排考」和「解析器认不出」——学期初考表是空的，以前会报成结构不匹配。\n跨年修正：1 月的考试不再显示成去年（秋季学期跨年）。",
-  "sha256": "e59916b0b4c4b2b5d5dd8c0535b9597f22d3dafc2476f9adc627f93f608666d4"
+  "versionCode": 27,
+  "versionName": "0.3.9",
+  "url": "https://raw.githubusercontent.com/Yang-Yin734/chengdian-pocket/main/apk/chengdian-pocket-0.3.9.apk",
+  "notes": "教室/考试同步走「云中成电」时不再卡在登录页：门户 /login 本身就是统一身份认证页，现在校外也能用本机保存的账号密码自动重登，并把门户票据 cookie 回填给 WebView。另修登录页在门户域下取不到会话的老问题。",
+  "sha256": "9c5cd3236dd7b910b7de8018c9fdc3fce3e95c20f0c367fbe59b0669617a0e56"
 }
