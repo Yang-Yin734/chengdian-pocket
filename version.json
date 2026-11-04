@@ -1,7 +1,7 @@
 {
-  "versionCode": 25,
-  "versionName": "0.3.7",
-  "url": "https://gh-proxy.com/https://raw.githubusercontent.com/Yang-Yin734/chengdian-pocket/main/apk/chengdian-pocket-0.3.7-release.apk",
-  "notes": "空状态和出错状态统一成卡片：左侧图标颜色就说明性质——蓝色是「下一步该点哪」，灰色是「本来就没有」，红色是「被挡住了」。\n学期初教务还没排考时，现在会说「这学期还没有排考，不是解析出错」，不再报「表格结构和预期不一样」；空闲教室查询成功但一节都空不出来时，也会明确说「这几节都被占用了」。\n教室页的失败提示、日程页的空课提示换成同一个样式，字号和留白统一。",
-  "sha256": "faad9d002b3a45223ca0e405e380b9315a42f4f105edecab319586de6eed72a5"
+  "versionCode": 26,
+  "versionName": "0.3.8",
+  "url": "https://gh-proxy.com/https://raw.githubusercontent.com/Yang-Yin734/chengdian-pocket/main/apk/chengdian-pocket-0.3.8.apk",
+  "notes": "失败提示统一成状态卡：红=被挡住（403/校外）、琥珀=要注意（演示数据）、灰=确实没有；教室和考试的失败页不再是一行小字。\n考试页区分「这学期还没排考」和「解析器认不出」——学期初考表是空的，以前会报成结构不匹配。\n跨年修正：1 月的考试不再显示成去年（秋季学期跨年）。",
+  "sha256": "e59916b0b4c4b2b5d5dd8c0535b9597f22d3dafc2476f9adc627f93f608666d4"
 }
