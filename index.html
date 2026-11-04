@@ -2,54 +2,62 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>成电口袋 · 下载</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>成电口袋 · 更新源</title>
 <style>
-  :root{--blue:#3455C8;--ink:#131D33;--sub:#797F89;--bg:#F2F5FC}
-  *{box-sizing:border-box}
-  body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;
-    background:radial-gradient(120% 80% at 20% 0%,#E8EEFB 0%,var(--bg) 60%);
-    font:16px/1.6 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink);padding:24px}
-  .card{width:100%;max-width:460px;background:rgba(255,255,255,.78);backdrop-filter:blur(20px) saturate(1.4);
-    border:1px solid rgba(255,255,255,.9);border-radius:26px;padding:28px 26px;
-    box-shadow:0 24px 60px -24px rgba(19,29,51,.28)}
-  h1{margin:0 0 6px;font-size:26px;letter-spacing:-.4px}
-  .sub{color:var(--sub);font-size:13px;margin:0 0 22px}
-  .ver{display:flex;gap:10px;align-items:baseline;margin:0 0 6px}
-  .ver b{font-size:22px;letter-spacing:-.3px}
-  .ver span{color:var(--sub);font-size:13px}
-  .notes{background:#F4F7FE;border-radius:14px;padding:14px 16px;font-size:13.5px;color:#3C465C;margin:16px 0 22px;white-space:pre-wrap}
-  a.btn{display:block;text-align:center;background:var(--blue);color:#fff;text-decoration:none;
-    padding:15px 18px;border-radius:16px;font-weight:600;box-shadow:0 12px 26px -12px rgba(52,85,200,.8);transition:transform .12s}
-  a.btn:active{transform:scale(.97)}
-  .meta{margin-top:14px;font-size:12px;color:var(--sub);word-break:break-all}
-  .foot{margin-top:20px;font-size:12px;color:var(--sub);text-align:center}
+  /* 2026-10-31 可达性：--sub 原为 #797F89，在白卡上 4.03、在 #F4F7FE 上 3.76，不达 AA 的 4.5。
+     #616B76 在 #fff/#F4F7FE/#F2F5FC/#EAEDFF 上分别是 5.42/5.06/4.97/4.66，全部过线且仍是「次要文字」的观感。 */
+  :root { --blue:#3455C8; --ink:#131D33; --sub:#616B76; --bg:#F2F5FC; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font:15px/1.6 -apple-system,"Segoe UI","Microsoft YaHei",sans-serif; }
+  .wrap { max-width:640px; margin:0 auto; padding:32px 20px 64px; }
+  .card { background:#fff; border-radius:18px; padding:24px; box-shadow:0 6px 24px rgba(19,29,51,.07); }
+  h1 { margin:0 0 4px; font-size:22px; }
+  .sub { margin:0 0 20px; color:var(--sub); font-size:13px; }
+  .ver { display:inline-block; background:#EAEDFF; color:var(--blue);
+         border-radius:999px; padding:3px 12px; font-size:13px; margin-bottom:14px; }
+  .notes { margin:0 0 20px; padding:14px 16px; background:#F4F7FE; border-radius:12px; font-size:14px; }
+  a.btn { display:inline-block; background:var(--blue); color:#fff; text-decoration:none;
+          padding:12px 22px; border-radius:999px; font-size:15px; font-weight:600; }
+  .meta { margin-top:22px; font-size:12px; color:var(--sub); word-break:break-all; }
+  .meta code { background:#F4F7FE; padding:2px 6px; border-radius:6px; }
+  .foot { margin-top:22px; font-size:12px; color:var(--sub); text-align:center; }
 </style>
 </head>
 <body>
-<div class="card">
-  <h1>成电口袋</h1>
-  <p class="sub">个人开发 · 非官方应用 · 数据来自学校教务</p>
-  <div class="ver"><b id="vn">加载中…</b><span id="vc"></span></div>
-  <div class="notes" id="notes">正在读取 version.json…</div>
-  <a class="btn" id="dl" href="#">下载安装包</a>
-  <div class="meta" id="meta"></div>
-  <p class="foot">装好后打开 App 会自动检查更新，不需要再回这个页面。</p>
+<div class="wrap">
+  <div class="card">
+    <h1>成电口袋 · 更新源</h1>
+    <p class="sub">个人开发的电子科技大学校园助手 · 非官方应用</p>
+
+    <span class="ver" id="ver">读取中…</span>
+    <div class="notes" id="notes">正在读取版本信息。</div>
+
+    <a class="btn" id="dl" href="#">下载 APK</a>
+
+    <div class="meta">
+      <div>清单：<code id="murl">version.json</code></div>
+      <div>SHA-256：<code id="sha">—</code></div>
+    </div>
+  </div>
+  <p class="foot">App 每次冷启动会读这份 version.json，发现 versionCode 更大就提示更新。</p>
 </div>
 <script>
-fetch('version.json?t=' + Date.now()).then(r => r.json()).then(v => {
-  document.getElementById('vn').textContent = 'v' + v.versionName;
-  document.getElementById('vc').textContent = '(' + v.versionCode + ')';
-  document.getElementById('notes').textContent = v.notes || '（无更新说明）';
-  // 直接用清单里的地址：远程包名不一定是 chengdian-pocket-<版本>.apk，
-// 自己拼名字会在镜像/改名后 404。
-var url = v.url || ('apk/chengdian-pocket-' + v.versionName + '.apk');
-  document.getElementById('dl').href = url;
-  document.getElementById('dl').textContent = '下载 v' + v.versionName + '（约 ' + (2.2).toFixed(1) + ' MB）';
-  document.getElementById('meta').textContent = v.sha256 ? ('sha256 ' + v.sha256) : '';
-}).catch(e => {
-  document.getElementById('notes').textContent = '读取 version.json 失败：' + e;
-});
+fetch('version.json?t=' + Date.now())
+  .then(r => r.json())
+  .then(v => {
+    document.getElementById('ver').textContent = '最新版本 ' + v.versionName + '（' + v.versionCode + '）';
+    document.getElementById('notes').textContent = v.notes || '本次更新没有写说明。';
+    document.getElementById('dl').href = v.url;
+    document.getElementById('sha').textContent = v.sha256 || '未提供（App 会跳过校验）';
+    document.getElementById('murl').textContent = location.origin + location.pathname.replace(/[^/]*$/, '') + 'version.json';
+  })
+  .catch(() => {
+    document.getElementById('ver').textContent = '读不到 version.json';
+    document.getElementById('notes').textContent =
+      '如果这是本地打开的文件，请用 http 服务访问；部署到静态托管后才会正常读取。';
+  });
 </script>
 </body>
 </html>

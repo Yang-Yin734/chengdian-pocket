@@ -1,7 +1,7 @@
 {
-  "versionCode": 24,
-  "versionName": "0.3.6",
-  "url": "https://gh-proxy.com/https://raw.githubusercontent.com/Yang-Yin734/chengdian-pocket/main/apk/chengdian-pocket-0.3.6-release.apk",
-  "notes": "界面优化：四个导航标签常显，考试卡片更紧凑，教室显示缓存时间。\n明确区分演示数据、403 与登录失效，失败保留已有缓存。\n安全修复：不再明文保存密码，排除凭据备份和迁移，恢复 HTTPS 证书校验。\n校外 WebVPN 仍需本人完成学校认证。",
-  "sha256": "6bb0552b691ff7dac392ec65076649178ef44023866d8bd78e76fbac4a6d8ad9"
+  "versionCode": 25,
+  "versionName": "0.3.7",
+  "url": "https://gh-proxy.com/https://raw.githubusercontent.com/Yang-Yin734/chengdian-pocket/main/apk/chengdian-pocket-0.3.7-release.apk",
+  "notes": "空状态和出错状态统一成卡片：左侧图标颜色就说明性质——蓝色是「下一步该点哪」，灰色是「本来就没有」，红色是「被挡住了」。\n学期初教务还没排考时，现在会说「这学期还没有排考，不是解析出错」，不再报「表格结构和预期不一样」；空闲教室查询成功但一节都空不出来时，也会明确说「这几节都被占用了」。\n教室页的失败提示、日程页的空课提示换成同一个样式，字号和留白统一。",
+  "sha256": "faad9d002b3a45223ca0e405e380b9315a42f4f105edecab319586de6eed72a5"
 }
