@@ -1,7 +1,7 @@
 {
-  "versionCode": 27,
-  "versionName": "0.3.9",
-  "url": "https://raw.githubusercontent.com/Yang-Yin734/chengdian-pocket/main/apk/chengdian-pocket-0.3.9.apk",
-  "notes": "教室/考试同步走「云中成电」时不再卡在登录页：门户 /login 本身就是统一身份认证页，现在校外也能用本机保存的账号密码自动重登，并把门户票据 cookie 回填给 WebView。另修登录页在门户域下取不到会话的老问题。",
-  "sha256": "9c5cd3236dd7b910b7de8018c9fdc3fce3e95c20f0c367fbe59b0669617a0e56"
+  "versionCode": 28,
+  "versionName": "0.4.0",
+  "url": "https://raw.githubusercontent.com/Yang-Yin734/chengdian-pocket/main/apk/chengdian-pocket-0.4.0.apk",
+  "notes": "教室/考试同步走「云中成电」（校外 WebVPN）终于能自动登录了。实测发现门户不会把统一身份认证的会话 cookie 回传给客户端（只剩 wengine_vpn_ticket），所以任何 HTTP 客户端提交表单都被回「当前登录会话已失效」——0.3.9 就是死在这。0.4.0 改成在网页里代填学号密码并点登录，由门户自己的 JS 完成加密提交，失败会自动退回手动。另：登录页双 tab、提交按钮是 #login_submit 等真实结构已对齐。",
+  "sha256": "972c1a532931670105c30184f6bdc2d3e8444fbc150a33f176338ba248987854"
 }
